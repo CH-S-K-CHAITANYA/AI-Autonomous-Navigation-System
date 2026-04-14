@@ -69,31 +69,36 @@ This project implements all three layers in a virtual simulation environment.
 ---
 
 ## 🏗️ Architecture
-
-[Simulation Engine (Pygame)]
-│
-▼
-[LiDAR Sensor (Ray-casting)]
-│
-▼
-[Occupancy Grid Builder]
-│
-▼
-[A* Path Planner] ←─── [Decision State Machine]
-│ │
-▼ ▼
-[Navigation Controller] [Dynamic Replanning]
-│
-▼
-[Agent Movement + Trail]
-│
-▼
-[Visualizer + Dashboard + Logger]
-
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   AI Autonomous Navigation System                │
+│                                                                 │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐  │
+│  │  SIMULATION  │───▶│  PERCEPTION  │───▶│  OCCUPANCY GRID  │  │
+│  │    ENGINE    │    │   MODULE     │    │    BUILDER       │  │
+│  │  (Pygame)    │    │  (OpenCV +   │    │  (NumPy array)   │  │
+│  └──────────────┘    │   sensors)   │    └────────┬─────────┘  │
+│                      └──────────────┘             │            │
+│                                                   ▼            │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐  │
+│  │  NAVIGATION  │◀───│   DECISION   │◀───│  PATH PLANNING   │  │
+│  │  CONTROLLER  │    │    ENGINE    │    │  (A* Algorithm)  │  │
+│  │  (velocity,  │    │  (rules +    │    │  Dynamic replan  │  │
+│  │   steering)  │    │   states)    │    └──────────────────┘  │
+│  └──────┬───────┘    └──────────────┘                          │
+│         │                                                       │
+│         ▼                                                       │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐  │
+│  │    AGENT     │───▶│  VISUALIZER  │───▶│  OUTPUT LOGGER   │  │
+│  │   (Vehicle)  │    │  (Pygame +   │    │  (screenshots,   │  │
+│  └──────────────┘    │  dashboard)  │    │   video, CSV)    │  │
+│                      └──────────────┘    └──────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+```
 ---
 
 ## 📁 Folder Structure
-
+```
 AI-Autonomous-Navigation-System/
 ├── simulation/ # World environment, maps, dynamic obstacles
 ├── src/ # Core AI modules (perception, planning, control)
@@ -105,7 +110,7 @@ AI-Autonomous-Navigation-System/
 ├── main.py # Simulation entry point
 ├── config.py # All configuration constants
 └── requirements.txt
-
+```
 ---
 
 ## ⚙️ Installation
