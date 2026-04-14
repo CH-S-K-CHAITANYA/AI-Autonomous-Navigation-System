@@ -182,7 +182,7 @@ jupyter notebook notebooks/path_planning_demo.ipynb
 
 | Initial State                                    | Replanning                                     | Goal Reached                                 |
 | ------------------------------------------------ | ---------------------------------------------- | -------------------------------------------- |
-| ![Initial](images/screenshots/initial_state.png) | ![Replan](images/screenshots/first_replan.png) | ![Goal](images/screenshots/goal_reached.png) |
+| ![Initial](outputs/screenshots/initial_state.png) | ![Replan](outputs/screenshots/first_replan.png) | ![Goal](outputs/screenshots/goal_reached.png) |
 
 ### Demo
 
